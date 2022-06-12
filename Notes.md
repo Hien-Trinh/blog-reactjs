@@ -51,8 +51,6 @@ The object ```my_car``` has the attribute ```brand="Tesla"```.
 - passed into React component as an arguement.
 - passed via HTML attribute
 
-### Without React component
-
 ``` javascript
 const myElement = <Car brand="Tesla" />
 
