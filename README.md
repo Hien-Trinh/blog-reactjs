@@ -8,6 +8,7 @@
 
 ## Material recommendations
 - Brief/concise introduction: [***React in 100 Seconds***](https://www.youtube.com/watch?v=Tn6-PIqc4UM) by [**Fireship**](https://www.youtube.com/c/Fireship) – I highly recommend videos by Fireship for people who can't bother to read documentations
+- Hands-on approach: [***Intro to React***](https://reactjs.org/tutorial/tutorial.html) by [reactjs.org](https://reactjs.org)
 
 ## What to expect
 
