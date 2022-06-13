@@ -1,24 +1,36 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import './index.css'
 
 class App extends React.Component {
     constructor() {
         super()
         this.state = {
-            value: 0
+            charity_list: null
         }
+    }
+
+    getCharity() {
+        this.setState({ charity_list: this.state.charity_list + 1 })
     }
 
     render() {
         return (
-            <div>
-                <button onClick={() => this.setState({ value: this.state.value + 1 })}>
-                    Click me
-                </button>
+            <React.Fragment>
+                <div class="text-center">
+                    <button class="font-bold bg-slate-700" onClick={this.getCharity()}>
+                        Click me
+                    </button>
+                </div>
+                
+                <br></br>
+                <ul>
+                    <li></li>
+                </ul>
                 <p>
                     {this.state.value}
                 </p>
-            </div>
+            </React.Fragment>
         )
     }
 }
