@@ -27,60 +27,55 @@ class App extends React.Component {
         })
         .then(response => response.json())
         .then(json => {
-            const charity_list = json.search.response.projects.project
             this.setState({
-                charity_list: charity_list,
-                isFetching: false})
+                charity_list: json.search.response.projects.project,
+                isFetching: false
+            })
         })
     }
 
-    getCharity(term) {
-        this.fetchResult('https://api.globalgiving.org/api/public/services/search/projects?api_key=5daeb019-df53-43ea-a550-0621ec8787bf&q=pakistan+flood' + term)
+    getCharity() {
+        this.fetchResult(`https://api.globalgiving.org/api/public/services/search/projects?api_key=5daeb019-df53-43ea-a550-0621ec8787bf&q=${this.state.searchTerm}`)
     }
 
     listElement() {
         if (this.state.charity_list == null) {
             return <p className="text-center">Nothing yet</p>
         }
+
         return (
-            <React.Fragment>
-                <ul className="text-center">
-                    <li>{this.state.charity_list[0].title}</li>
-                    <li>{this.state.charity_list[1].title}</li>
-                    <li>{this.state.charity_list[2].title}</li>
-                    <li>{this.state.charity_list[3].title}</li>
-                    <li>{this.state.charity_list[4].title}</li>
-                </ul>
-                <p>isFetching:{this.state.isFetching.toString()}</p>
-            </React.Fragment>
+            <ul className="text-center">
+                <li>{this.state.charity_list[0].title}</li>
+                <li>{this.state.charity_list[1].title}</li>
+                <li>{this.state.charity_list[2].title}</li>
+                <li>{this.state.charity_list[3].title}</li>
+                <li>{this.state.charity_list[4].title}</li>
+            </ul>
         )
     }
 
     onSearchChange(event) {
         this.setState({ searchTerm: event.target.value })
-        this.getCharity(this.state.searchTerm)
+        console.log(event.target.value)
     }
 
     render() {
         return (
             <React.Fragment>
-                <div className="text-center">
-                    <form>
-                        <input
-                        type="text"
-                        placeholder="Search"
-                        onChange={this.onSearchChange}/>
-                        <button
-                            className="font-bold bg-slate-700"
-                            onClick={this.getCharity}
-                            disabled={this.state.isFetching}>
-                            Click me
-                        </button>
-                    </form>
-                </div>
+                <form className="text-center flex justify-center content-center">
+                    <input type="text" placeholder="Search" className="w-5/12 h-11 border-2 border-black" onChange={this.onSearchChange}/>
+                    <button className="font-bold bg-slate-700" onClick={this.getCharity} disabled={this.state.isFetching}>
+                        Click me
+                    </button>
+                </form>
                 
                 <br></br>
+
                 <this.listElement />
+
+                <br></br>
+
+                <p className="text-center">isFetching:{this.state.isFetching.toString()}</p>
             </React.Fragment>
         )
     }
