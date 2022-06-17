@@ -40,17 +40,19 @@ class App extends React.Component {
 
     listElement() {
         if (this.state.charity_list == null) {
-            return <p className="text-center">Nothing yet</p>
+            return <p className="">Nothing yet</p>
         }
 
         return (
-            <ul className="text-center">
-                <li>{this.state.charity_list[0].title}</li>
-                <li>{this.state.charity_list[1].title}</li>
-                <li>{this.state.charity_list[2].title}</li>
-                <li>{this.state.charity_list[3].title}</li>
-                <li>{this.state.charity_list[4].title}</li>
-            </ul>
+            <div className="">
+                <ul className="">
+                    <li>{this.state.charity_list[0].title}</li>
+                    <li>{this.state.charity_list[1].title}</li>
+                    <li>{this.state.charity_list[2].title}</li>
+                    <li>{this.state.charity_list[3].title}</li>
+                    <li>{this.state.charity_list[4].title}</li>
+                </ul>
+            </div>
         )
     }
 
@@ -61,22 +63,17 @@ class App extends React.Component {
 
     render() {
         return (
-            <React.Fragment>
-                <form className="text-center flex justify-center content-center">
-                    <input type="text" placeholder="Search" className="w-5/12 h-11 border-2 border-black" onChange={this.onSearchChange}/>
-                    <button className="font-bold bg-slate-700" onClick={this.getCharity} disabled={this.state.isFetching}>
+            <div className="">
+                <form className="flex items-center justify-center pt-80">
+                    <input type="text" placeholder="Search" className="w-5/12 h-11 border-[1px] border-gray-400 rounded-l-full shadow-2xl" onChange={this.onSearchChange}/>
+                    <button className="font-bold bg-gray-400 h-11 rounded-r-full shadow-2xl" onClick={this.getCharity} disabled={this.state.isFetching}>
                         Click me
                     </button>
                 </form>
-                
-                <br></br>
 
                 <this.listElement />
-
-                <br></br>
-
-                <p className="text-center">isFetching:{this.state.isFetching.toString()}</p>
-            </React.Fragment>
+                <p className="">isFetching:{this.state.isFetching.toString()}</p>
+            </div>
         )
     }
 }
