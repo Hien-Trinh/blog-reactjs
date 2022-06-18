@@ -44,13 +44,11 @@ class App extends React.Component {
         }
 
         return (
-            <div className="">
+            <div className="text-center">
                 <ul className="">
-                    <li>{this.state.charity_list[0].title}</li>
-                    <li>{this.state.charity_list[1].title}</li>
-                    <li>{this.state.charity_list[2].title}</li>
-                    <li>{this.state.charity_list[3].title}</li>
-                    <li>{this.state.charity_list[4].title}</li>
+                    {this.state.charity_list.map(charity => (
+                        <li key={charity.id}>{charity.title}</li>
+                    ))}
                 </ul>
             </div>
         )
@@ -72,7 +70,7 @@ class App extends React.Component {
                 </form>
 
                 <this.listElement />
-                <p className="">isFetching:{this.state.isFetching.toString()}</p>
+                <p className="flex text-center">isFetching:{this.state.isFetching.toString()}</p>
             </div>
         )
     }
