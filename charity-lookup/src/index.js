@@ -44,7 +44,7 @@ class App extends React.Component {
         }
 
         return (
-            <div className="text-center">
+            <div className="flex items-center justify-center w-1/2 border-[1px] border-gray-400 rounded-b-3xl shadow-2xl">
                 <ul className="">
                     {this.state.charity_list.map(charity => (
                         <li key={charity.id}>{charity.title}</li>
@@ -63,7 +63,7 @@ class App extends React.Component {
         return (
             <div className="">
                 <form className="flex items-center justify-center pt-80">
-                    <input type="text" placeholder="Search" className="w-5/12 h-11 border-[1px] border-gray-400 rounded-l-full shadow-2xl" onChange={this.onSearchChange}/>
+                    <input type="text" placeholder="Search" className="w-5/12 h-11 border-[1px] border-gray-400 rounded-l-3xl shadow-2xl" onChange={this.onSearchChange}/>
                     <button className="font-bold bg-gray-400 h-11 rounded-r-full shadow-2xl" onClick={this.getCharity} disabled={this.state.isFetching}>
                         Click me
                     </button>
